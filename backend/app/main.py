@@ -1,9 +1,25 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from app.schema import URLRequest
 from app.predictor import predict_url
 from app.threat_feeds import load_threat_feeds
 
 app = FastAPI()
+
+# Allow frontend (Vite dev server)
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.on_event("startup")
@@ -17,7 +33,7 @@ def home():
 
 
 @app.post("/scan-url")
-def scan_url(data: URLRequest):
+async def scan_url(data: URLRequest):
 
     prediction, probability, features, threat_source = predict_url(data.url)
 
