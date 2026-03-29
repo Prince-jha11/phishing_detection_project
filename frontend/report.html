@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="report-wrapper">
+
+    <h1>🔍 Security Report</h1>
+
+    <!-- Main Risk Card -->
+    <div id="riskCard" class="risk-card">
+        <h2 id="riskLevel">Analyzing...</h2>
+        <p id="riskScore"></p>
+    </div>
+
+    <!-- Details Grid -->
+    <div class="grid">
+
+        <div class="box">
+            <h3>📊 Threat Probability</h3>
+            <p id="probability">--</p>
+        </div>
+
+        <div class="box">
+            <h3>🌐 Domain Info</h3>
+            <p id="domainInfo">--</p>
+        </div>
+
+        <div class="box">
+            <h3>🔐 SSL Status</h3>
+            <p id="sslStatus">--</p>
+        </div>
+
+        <div class="box">
+            <h3>📅 Domain Age</h3>
+            <p id="domainAge">--</p>
+        </div>
+
+        <div class="box full">
+            <h3>📜 Past Records</h3>
+            <ul id="historyList"></ul>
+        </div>
+
+    </div>
+
+    <button onclick="goBack()">⬅ Analyze Another</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
