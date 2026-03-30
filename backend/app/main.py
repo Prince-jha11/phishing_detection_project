@@ -40,7 +40,7 @@ async def scan_url(data: URLRequest):
     prob = float(probability)
     threat_detected = bool(threat_source)
 
-    # 🔥 Base ML decision
+    
     if prediction == -1:
         if prob >= 0.7:
             result = "Phishing"
