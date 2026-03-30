@@ -36,7 +36,7 @@ async function fetchRisk(url) {
     }
 }
 
-// 🔥 SMART ANALYSIS FUNCTION
+
 function generateSmartWarning(features) {
     let risky = [];
     let suspicious = [];
@@ -123,7 +123,7 @@ window.onload = async function () {
             probability.innerText = "⚠️ Suspicious";
         }
 
-        // 🔥 CLEAN FEATURE DISPLAY (FIXED)
+        
         const features = result.features || {};
         domainInfo.innerHTML = "";
 
@@ -177,13 +177,13 @@ window.onload = async function () {
             domainInfo.appendChild(s);
         }
 
-        // SSL
+        
         sslStatus.innerText =
             features["SSLfinal_State"] === 1
                 ? "Valid SSL"
                 : "Suspicious / Invalid SSL";
 
-        // DOMAIN AGE
+        
         const ageFeature = features["age_of_domain"];
         const ageDays = features["domain_age_days"];
 
@@ -199,7 +199,7 @@ window.onload = async function () {
             domainAge.innerText = "Unknown Domain Age ⚠️";
         }
 
-        // THREAT FEED
+        
         historyList.innerHTML = "";
 
         if (result.threat_detected) {
@@ -213,7 +213,7 @@ window.onload = async function () {
             historyList.appendChild(li);
         }
 
-        // POPUP
+        
         const smartMessage = generateSmartWarning(features);
 
         if (level === "Phishing") {

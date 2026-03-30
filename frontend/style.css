@@ -27,7 +27,7 @@ body::before {
     height: 100vh;
 }
 
-/* Main Card */
+
 .card-main {
     background: rgba(30, 41, 59, 0.85);
     backdrop-filter: blur(10px);
@@ -63,14 +63,14 @@ button:hover {
     background: #2563eb;
 }
 
-/* REPORT PAGE */
+
 .report-wrapper {
     padding: 30px;
     max-width: 1000px; /* ✅ slightly wider */
     margin: auto;
 }
 
-/* Risk Card */
+
 .risk-card {
     padding: 20px;
     border-radius: 10px;
@@ -79,45 +79,44 @@ button:hover {
     font-size: 1.3rem;
 }
 
-/* Risk Colors */
+
 .high { background: #dc2626; }
 .medium { background: #f59e0b; }
 .low { background: #16a34a; }
 
-/* Responsive Grid */
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ✅ FIX */
     gap: 15px;
 }
 
-/* Box (THIS IS WHERE YOUR BUG WAS) */
+
 .box {
     background: #1e293b;
     padding: 20px;
     border-radius: 10px;
 
-    max-height: 300px;   /* ✅ LIMIT HEIGHT */
-    overflow-y: auto;    /* ✅ SCROLL INSIDE */
+    max-height: 300px;  
+    overflow-y: auto;    
 }
 
-/* Prevent text overflow */
 .box p {
     margin: 5px 0;
-    word-break: break-word; /* ✅ FIX LONG TEXT */
+    word-break: break-word; 
 }
 
-/* Full width box */
+
 .full {
     grid-column: span 2;
 }
 
-/* Fix long URL overflow */
+
 #riskScore {
     word-break: break-all;
 }
 
-/* Optional: scrollbar styling (makes you look competent) */
+
 .box::-webkit-scrollbar {
     width: 6px;
 }
@@ -160,7 +159,7 @@ button:hover {
 }
 html {
     height: 100%;
-    background: #0f172a; /* fallback color same as theme */
+    background: #0f172a; 
 }
 .disclaimer {
     margin-top: -10px;

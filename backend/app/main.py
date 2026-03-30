@@ -7,7 +7,7 @@ from app.threat_feeds import load_threat_feeds
 
 app = FastAPI()
 
-# ✅ Allow your frontend ports
+
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
@@ -52,15 +52,15 @@ async def scan_url(data: URLRequest):
         result = "Legitimate"
         flag = "green"
 
-    # 🔥 Adjust using threat intelligence (SMART LOGIC)
+
     if threat_detected:
         if result == "Legitimate":
-            result = "Suspicious"   # downgrade, don’t overreact
+            result = "Suspicious"  
             flag = "orange"
         elif result == "Suspicious":
-            result = "Phishing"     # upgrade risk
+            result = "Phishing"     
             flag = "red"
-        # if already Phishing → keep it
+       
 
     return {
     "url": data.url,
@@ -70,7 +70,7 @@ async def scan_url(data: URLRequest):
 
     "features": features,
 
-    # 🔥 make these explicit (clean API design)
+    
     "domain_age_days": features.get("domain_age_days"),
     "domain_age_flag": features.get("age_of_domain"),
 
