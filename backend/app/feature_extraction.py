@@ -68,7 +68,38 @@ class FeatureExtraction:
             issuer = dict(x[0] for x in cert['issuer'])
             issuer_name = issuer.get('organizationName','')
 
-            trusted = ["DigiCert","Let's Encrypt","GlobalSign","Sectigo","GoDaddy"]
+            trusted = [
+    "DigiCert",
+    "Let's Encrypt",
+    "GlobalSign",
+    "Sectigo",
+    "GoDaddy",
+
+    "Entrust",
+    "Comodo",  # legacy name (Sectigo)
+    "GeoTrust",
+    "Thawte",
+    "RapidSSL",
+
+    "Amazon",
+    "Google Trust Services",
+    "Microsoft",
+    "Cloudflare",
+
+    "SSL.com",
+    "IdenTrust",
+    "Buypass",
+    "Actalis",
+
+    "Trustwave",
+    "Certum",
+    "SecureTrust",
+    "Network Solutions",
+
+    "QuoVadis",
+    "Starfield",   # GoDaddy subsidiary
+    "Cybertrust"
+]
 
             features["SSLfinal_State"] = 1 if any(t in issuer_name for t in trusted) else 0
 
@@ -222,22 +253,35 @@ class FeatureExtraction:
 
         # ---------------- DOMAIN AGE ----------------
 
-        try:
+        # ---------------- DOMAIN AGE ----------------
 
+        try:
             if w and w.creation_date:
 
-                creation=w.creation_date
-                if isinstance(creation,list):
-                    creation=creation[0]
+                creation = w.creation_date
 
-                age=(datetime.now()-creation).days
-                features["age_of_domain"]=1 if age>=365 else -1
+                # handle list
+                if isinstance(creation, list):
+                    creation = next((d for d in creation if isinstance(d, datetime)), None)
+
+                if isinstance(creation, datetime):
+                    age_days = (datetime.now() - creation).days
+
+                    # store BOTH values
+                    features["age_of_domain"] = 1 if age_days >= 365 else -1
+                    features["domain_age_days"] = age_days
+
+                else:
+                    features["age_of_domain"] = -1
+                    features["domain_age_days"] = None
 
             else:
-                features["age_of_domain"]=-1
+                features["age_of_domain"] = -1
+                features["domain_age_days"] = None
 
         except:
-            features["age_of_domain"]=-1
+            features["age_of_domain"] = -1
+            features["domain_age_days"] = None
 
         # ---------------- DNS ----------------
 

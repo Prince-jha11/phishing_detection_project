@@ -44,11 +44,6 @@ def predict_url(url):
     feature_dict = extractor.extract_all_features(url)
 
     threat_source = feature_dict.get("Threat_Source")
-    stat_value = feature_dict.get("Statistical_report")
-
-    # if already flagged by threat intelligence
-    if stat_value == -1:
-        return -1, 1.0, feature_dict, threat_source
 
     # remove UI-only field
     feature_dict.pop("Threat_Source", None)
