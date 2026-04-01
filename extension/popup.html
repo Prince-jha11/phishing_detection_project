@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phishing Detection Report Card</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container glass">
+    <header>
+      <div class="logo-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shield-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <h1>PhishGuard</h1>
+      </div>
+      <p class="subtitle">Secure Browsing Assistant</p>
+    </header>
+
+    <div class="url-section">
+      <span class="label">Current URL:</span>
+      <div id="url-display" class="url-box">retrieving...</div>
+    </div>
+
+    <button id="scan-btn" class="primary-btn">
+      <span id="btn-text">Analyze Website</span>
+      <div id="btn-loader" class="loader hidden"></div>
+    </button>
+
+    <div id="results-card" class="result-card hidden">
+      <div class="result-header">
+        <h2>Report Card</h2>
+        <span id="risk-badge" class="badge">--</span>
+      </div>
+      
+      <div class="metric">
+        <span class="metric-label">Prediction:</span>
+        <span id="prediction-value" class="metric-value">--</span>
+      </div>
+      
+      <div class="metric">
+        <span class="metric-label">Probability:</span>
+        <span id="probability-value" class="metric-value">--</span>
+      </div>
+      
+      <div class="metric">
+        <span class="metric-label">Threat Source:</span>
+        <span id="threat-value" class="metric-value">--</span>
+      </div>
+    </div>
+    
+    <div id="error-message" class="error-box hidden"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

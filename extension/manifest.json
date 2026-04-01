@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Detection UI",
+  "version": "1.0",
+  "description": "Scans the current website to determine if it's a phishing site.",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
