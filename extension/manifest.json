@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Phishing Detection UI",
+  "name": "Phishing Detector",
   "version": "1.0",
   "description": "Scans the current website to determine if it's a phishing site.",
   "permissions": [
