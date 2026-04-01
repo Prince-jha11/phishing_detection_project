@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Report</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="report-wrapper">
+
+    <h1>🔍 Security Report</h1>
+
+    <div id="riskCard" class="risk-card">
+        <h2 id="riskLevel">Analyzing...</h2>
+        <p id="riskScore"></p>
+    </div>
+
+    <div class="grid">
+
+        <div class="box">
+            <h3>📊 Threat Probability</h3>
+            <p id="probability">--</p>
+        </div>
+
+        <div class="box">
+            <h3>🌐 Domain Info</h3>
+            <p id="domainInfo">--</p>
+        </div>
+
+        <div class="box">
+            <h3>🔐 SSL Status</h3>
+            <p id="sslStatus">--</p>
+        </div>
+
+        <div class="box">
+            <h3>📅 Domain Age</h3>
+            <p id="domainAge">--</p>
+        </div>
+
+        <div class="box full">
+            <h3>📜 Past Records</h3>
+            <ul id="historyList"></ul>
+        </div>
+
+    </div>
+
+    <button onclick="goBack()">⬅ Analyze Another</button>
+
+</div>
+<p class="disclaimer">
+⚠️ This analysis is based on automated models and threat data. While we aim for accuracy, results may not always be correct. Always verify before trusting any website.
+</p>
+<div id="warningPopup" class="popup hidden">
+    <div class="popup-content">
+        <h2 id="popupTitle"></h2>
+        <p id="popupMessage"></p>
+        <button onclick="closePopup()">Got it</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
